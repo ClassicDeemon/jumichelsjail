@@ -1,0 +1,4 @@
+name: jumichelsjail
+version: '${project.version}'
+main: de.jumichel.jail.Main
+api-version: '1.20'
