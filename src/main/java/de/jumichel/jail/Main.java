@@ -8,15 +8,18 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        System.out.println("Jumichels Jail System is starting up.");
-        sqlData = new MySql("user", "user", "jailedplayer", "localhost", 3306);
+        System.out.println(MySql.PREFIX + "System startet");
+        sqlData = new MySql("user", "user", "jaildatabase", "localhost", 3306);
 
         this.getCommand("jail").setExecutor(new CommandJail());
+        getServer().getPluginManager().registerEvents(new JoinEventListener(), this);
+
+        System.out.println(MySql.PREFIX + "System ist gestartet.");
 
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        System.out.println(MySql.PREFIX + "System wird gestoppt.");
     }
 }
