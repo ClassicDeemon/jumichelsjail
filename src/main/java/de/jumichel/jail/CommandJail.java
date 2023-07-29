@@ -37,8 +37,8 @@ public class CommandJail implements CommandExecutor {
             commandSender.sendMessage(ChatColor.GOLD + "" + MySql.PREFIX + ChatColor.WHITE + target.getName() + " wurde entjailt.");
             target.sendMessage(ChatColor.GOLD + "" + MySql.PREFIX + ChatColor.WHITE + "Du wurdest von " + commandSender.getName() + " gejailt.");
         } else if(JailData.isInDatabase(uuid) == false) {
-            target.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, Integer.MAX_VALUE, 1, false, false));
-            target.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 3, false, false));
+            target.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, Integer.MAX_VALUE, 10, false, false));
+            target.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 1000, false, false));
             JailData.setPlayerinJail(uuid);
             commandSender.sendMessage(ChatColor.GOLD + "" + MySql.PREFIX + ChatColor.WHITE + target.getName() + " wurde gejailt.");
             commandSender.sendMessage(String.valueOf(JailData.isInDatabase(uuid)));
