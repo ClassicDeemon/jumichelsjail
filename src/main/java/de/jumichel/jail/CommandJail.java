@@ -32,7 +32,6 @@ public class CommandJail implements CommandExecutor {
         if(JailData.isInDatabase(uuid) == true) {
             target.removePotionEffect(PotionEffectType.CONFUSION);
             target.removePotionEffect(PotionEffectType.SLOW);
-            commandSender.sendMessage(String.valueOf(JailData.isInDatabase(uuid)));
             JailData.setPlayerOutJail(uuid);
             commandSender.sendMessage(ChatColor.GOLD + "" + MySql.PREFIX + ChatColor.WHITE + target.getName() + " wurde entjailt.");
             target.sendMessage(ChatColor.GOLD + "" + MySql.PREFIX + ChatColor.WHITE + "Du wurdest von " + commandSender.getName() + " gejailt.");
@@ -41,7 +40,6 @@ public class CommandJail implements CommandExecutor {
             target.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 1000, false, false));
             JailData.setPlayerinJail(uuid);
             commandSender.sendMessage(ChatColor.GOLD + "" + MySql.PREFIX + ChatColor.WHITE + target.getName() + " wurde gejailt.");
-            commandSender.sendMessage(String.valueOf(JailData.isInDatabase(uuid)));
         } else {
             commandSender.sendMessage(ChatColor.GOLD + "" + MySql.PREFIX + ChatColor.WHITE + "Ein Fehler ist aufgetreten.");
         }
